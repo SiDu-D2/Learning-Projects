@@ -31,29 +31,34 @@
     </ul>
 
     <script>
-      let list = document.querySelector("ul");
-      let input = document.querySelector("input");
-      let button = document.querySelector("button");
-      
-      button.addEventListener("click", function() {
-        const myItem = input.value;
-        input.value = "";
-        
-        const newList = document.createElement("li")
-        const newSpan = document.createElement("span")
-        const newButton = document.createElement("button")
-        
-        newList.appendChild(newSpan);
-        newSpan.textContent = myItem;
-        newList.appendChild(newButton);
-        newButton.textContent = "Delete";
-        list.appendChild(newList);
-        
-        newButton.addEventListener("click", function(){
-          list.removeChild(newList);
-        })
-        input.focus();
-      });
+     document.querySelector("button").addEventListener("click", function() {
+  let input = document.querySelector("input");
+  const itemText = input.value.trim();
+  if (!itemText) {
+    alert("Please enter an item.");
+    input.focus();
+    return;
+  }
+
+  const listItem = document.createElement("li");
+  const span = document.createElement("span");
+  const deleteButton = document.createElement("button");
+
+  span.textContent = itemText;
+  deleteButton.textContent = "Delete";
+
+  listItem.appendChild(span);
+  listItem.appendChild(deleteButton);
+  document.querySelector("ul").appendChild(listItem);
+
+  deleteButton.addEventListener("click", function() {
+    listItem.remove();
+  });
+
+  input.value = "";
+  input.focus();
+});
+
     </script>
   </body>
 </html>
