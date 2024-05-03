@@ -5,15 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping list example</title>
     <style>
-      li {
-        margin-bottom: 10px;
-      }
+     body {
+    font-family: fantasy; /* Unconventional font */
+    background-image: linear-gradient(to right, #ff0080, #ffdf00, #80ff00, #00ff80, #00ffff, #0080ff, #ff00ff, #ff0080);
+    background-size: 200% 200%;
+    animation: Gradient 10s ease infinite;
+    color: #000;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    text-shadow: 1px 1px 2px purple, 0 0 25px blue, 0 0 5px darkblue; /* Text shadow for spooky effect */
+}
 
-      li button {
-        font-size: 12px;
-        margin-left: 20px;
-        color: #666;
-      }
+@keyframes Gradient {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+
+h1 {
+    font-size: 48px;
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: 2px 2px 4px #FF0000;
+}
+
+div {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input[type="text"] {
+    padding: 12px;
+    font-size: 18px;
+    border: 4px dotted #FF1493; /* Dotted border */
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 50%;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(255, 0, 0, 0.6);
+}
+
+button {
+    font-size: 20px;
+    padding: 12px 24px;
+    background-color: #FF4500; /* Orange Red */
+    color: yellow;
+    border: 3px solid #FFD700; /* Gold border */
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 255, 255, 0.5);
+    transition: transform 0.2s ease-in-out;
+}
+
+button:hover {
+    transform: rotate(-5deg) scale(1.1);
+    background-color: #DC143C;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #800080; /* Purple */
+    color: #FFF;
+    padding: 14px;
+    margin-bottom: 8px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 255, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: rotateZ(-2deg);
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+}
+
+li:hover {
+    transform: rotateZ(2deg);
+    background-color: #4B0082; /* Indigo */
+}
+
+li button {
+    background-color: #FFFF00; /* Yellow */
+    transition: all 0.3s ease;
+}
+
+li button:hover {
+    background-color: #00FF00; /* Lime */
+}
+
+span {
+    flex-grow: 1;
+    font-weight: bold;
+    font-size: 24px;
+}
+
     </style>
   </head>
   <body>
@@ -31,7 +119,7 @@
     </ul>
 
     <script>
-     document.querySelector("button").addEventListener("click", function() {
+    document.querySelector("button").addEventListener("click", function() {
   let input = document.querySelector("input");
   const itemText = input.value.trim();
   if (!itemText) {
